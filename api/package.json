@@ -1,0 +1,33 @@
+{
+  "name": "nodejs-restful-crud",
+  "version": "1.0.0",
+  "description": "Just a study project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hermitolino/nodejs-restful-crud.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "restful",
+    "crud",
+    "mongo",
+    "mongodb",
+    "mongoose"
+  ],
+  "author": "Hermitolino Isolatorio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hermitolino/nodejs-restful-crud/issues"
+  },
+  "homepage": "https://github.com/hermitolino/nodejs-restful-crud#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.15"
+  }
+}
