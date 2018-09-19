@@ -1,0 +1,32 @@
+version: "3"
+services: 
+    noderest_api:
+        container_name: noderest_api
+        image: noderest/api:latest
+        restart: always
+        ports:
+            - "3000:3000"
+        links:
+            - noderest_api_mongo
+        volumes:
+            - ./:/opt/api
+        networks:
+            noderest_api_network:
+                ipv4_address: 172.42.1.2
+  
+    noderest_api_mongo:
+        container_name: noderest_api_mongo
+        image: mongo
+        volumes:
+            - ./data:/data/db
+        ports:
+            - "27017:27017"
+        networks:
+            noderest_api_network:
+                ipv4_address: 172.42.1.3
+networks:
+    noderest_api_network:
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.42.1.0/16
