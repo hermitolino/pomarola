@@ -1,3 +1,3 @@
-Just a study project for learning how do NodeJs restful
+# This just is a node rastful application with mongo and nginx
 
-The project use the nodejs, express, mongodb and mongoose
+To run this project, you need the [Docker](https://www.docker.com/) installed on your system.

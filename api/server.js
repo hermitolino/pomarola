@@ -7,6 +7,9 @@ const app = express();
 // Create mongoose
 const dbConfig = require('./configs/database.config')
 const mongoose = require('mongoose')
+
+const port = 8080;
+
 mongoose.Promise = global.Promise
 
 mongoose.connect(dbConfig.url, {
@@ -31,7 +34,7 @@ app.get('/', (req, res) => {
 
 require('./routes/note.route')(app)
 
-app.listen(3000, () => {
-    console.log('Server is listening on port 8000')
+app.listen(port, () => {
+    console.log('Server is listening on port ' + port)
 })
 
