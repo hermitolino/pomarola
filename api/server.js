@@ -1,17 +1,15 @@
+// Init the app
+const port = 8080
 const express = require('express')
+const session = require('express-session')
 const bodyParser = require('body-parser')
-
-// Create a express app
 const app = express();
 
 // Create mongoose
 const dbConfig = require('./configs/database.config')
 const mongoose = require('mongoose')
-
-const port = 8080;
-
+// const mongoStore =require('connect-mongo')(session)
 mongoose.Promise = global.Promise
-
 mongoose.connect(dbConfig.url, {
     useNewUrlParser: true
 }).then(() => {
@@ -20,6 +18,13 @@ mongoose.connect(dbConfig.url, {
     console.log('Could not connect to the database. Exiting now', err)
     process.exit();
 })
+
+// Setup sessions for tracking logins
+app.use(session({
+    secret: 'Pomarola na pasta',
+    resave: true,
+    saveUninitialized: false
+}))
 
 // Parse requests of content-type application/x-wwwfrom-urlencoded
 app.use(bodyParser.urlencoded({extended: true}))

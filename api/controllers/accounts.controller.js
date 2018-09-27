@@ -1,23 +1,30 @@
+const jwt = require('jsonwebtoken')
 const Account = require('../models/account.model')
+
+const secret = 'Badass motherfocker'
 
 // Create and save the new Account
 exports.create = (req, res) => {
     // Create a Account
-    const account = new Account({
+    Account.create({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
-    })
-
-    // Save Account in the database
-    account.save()
-        .then(data => {
-            return res.send(data)
-        }).catch(err => {
+    }, function (err, account) {
+        if(err) {
             return res.status(500).send({
                 message: err.message || "Some error ocurred while createing the Account"
             })
+        }
+
+        return res.send({
+            auth: true,
+            token: jwt.sign({id: account._id}, secret, {
+                expiresIn: 86400 // 24 hours
+            }),
+            account: account
         })
+    })
 }
 
 // Retrive and return all accounts from the database
@@ -100,4 +107,27 @@ exports.delete = (req, res) => {
                 message: "Could not delete account with id: " + req.params.id
             })
         })
+}
+
+// Login
+exports.login = (req, res) => {
+    Account.authenticate(
+        req.body.email,
+        req.body.password,
+        function(err, account) {
+            if(err || !account) {
+                return res.status(500).send({
+                    message: "The login not works"
+                })
+            }
+
+            return res.send({
+                auth: true,
+                token: jwt.sign({id: account._id}, secret, {
+                    expiresIn: 86400 // 24 hours
+                }),
+                account: account
+            })
+        }
+    )
 }

@@ -1,6 +1,9 @@
 module.exports = (app) => {
     const accounts = require('../controllers/accounts.controller.js')
 
+    // Login
+    app.post('/login', accounts.login)
+
     // Create a new account
     app.post('/accounts', accounts.create)
 
@@ -15,4 +18,18 @@ module.exports = (app) => {
 
     // Delete a account with id
     app.delete('/accounts/:id', accounts.delete)
+
+    // Logout
+    app.get('/logout', function (req, res) {
+        if(req.session) {
+            // destroy session
+            req.session.destroy(function(err) {
+                if(err) {
+                    return next(err)
+                } else {
+                    return res.redirect('/')
+                }
+            })
+        }
+    })
 }
