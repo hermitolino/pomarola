@@ -1,14 +1,14 @@
 {
-  "name": "nodejs-restful-crud",
-  "version": "1.0.0",
-  "description": "Just a study project",
-  "main": "index.js",
+  "name": "pomarola",
+  "version": "0.1.0",
+  "description": "The Pomarola API",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hermitolino/nodejs-restful-crud.git"
+    "url": "git+https://github.com/hermitolino/pomarola.git"
   },
   "keywords": [
     "node",
@@ -17,14 +17,17 @@
     "crud",
     "mongo",
     "mongodb",
-    "mongoose"
+    "mongoose",
+    "pomodoro",
+    "agil",
+    "pasta"
   ],
   "author": "Hermitolino Isolatorio",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hermitolino/nodejs-restful-crud/issues"
+    "url": "https://github.com/hermitolino/pomarola/issues"
   },
-  "homepage": "https://github.com/hermitolino/nodejs-restful-crud#readme",
+  "homepage": "https://github.com/hermitolino/pomarola#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",

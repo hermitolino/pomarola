@@ -1,11 +1,11 @@
 FROM nginx:1.11
 
 # Add
-RUN groupadd -r www-api &&\
-    useradd -r -g www-api www-api
+RUN groupadd -r pomarola &&\
+    useradd -r -g pomarola pomarola
 
-RUN mkdir -p /home/www-api &&\
-    chmod 777 /home/www-api -R
+RUN mkdir -p /home/pomarola &&\
+    chmod 777 /home/pomarola -R
 
 RUN mkdir /etc/nginx/sites-available && rm /etc/nginx/conf.d/default.conf
 

@@ -1,3 +1,3 @@
 module.exports = {
-    url: 'mongodb://mongo:27017/nodejs-restful-crud'
+    url: 'mongodb://mongo:27017/pomarola'
 }
