@@ -29,10 +29,11 @@ app.use(bodyParser.json())
 
 // Routes
 app.get('/', (req, res) => {
-    res.json({'message': 'Hello there'})
+    res.json({'message': 'Wellcome to Pomarola'})
 })
 
-require('./routes/note.route')(app)
+// User routes
+require('./routes/accounts.route')(app)
 
 app.listen(port, () => {
     console.log('Server is listening on port ' + port)

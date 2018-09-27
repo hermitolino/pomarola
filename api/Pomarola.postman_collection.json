@@ -1,0 +1,84 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Pomarola",
+		"_postman_id": "3c9280c1-d9ea-44e8-50ac-06e99e2f8f12",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://api.pomarola.local/",
+			"request": {
+				"url": "http://api.pomarola.local/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.pomarola.local/accounts",
+			"request": {
+				"url": "http://api.pomarola.local/accounts",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Tester 2\",\n\t\"email\": \"tester2@test.local\",\n\t\"password\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.pomarola.local/accounts",
+			"request": {
+				"url": "http://api.pomarola.local/accounts",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.pomarola.local/accounts/5bacf64916a60f59cc3c3eff",
+			"request": {
+				"url": "http://api.pomarola.local/accounts/5bacf64916a60f59cc3c3eff",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Testario\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.pomarola.local/accounts/5bacf66616a60feb453c3f00",
+			"request": {
+				"url": "http://api.pomarola.local/accounts/5bacf66616a60feb453c3f00",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
