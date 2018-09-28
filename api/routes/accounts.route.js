@@ -14,10 +14,10 @@ module.exports = (app) => {
     app.get('/accounts/:id', accounts.findOne)
 
     // Update a account with id
-    app.put('/accounts/:id', accounts.update)
+    app.put('/accounts/:id', accounts.middleareVerifyToken, accounts.update)
 
     // Delete a account with id
-    app.delete('/accounts/:id', accounts.delete)
+    app.delete('/accounts/:id', accounts.middleareVerifyToken, accounts.delete)
 
     // Logout
     app.get('/logout', function (req, res) {

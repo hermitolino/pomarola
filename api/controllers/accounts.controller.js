@@ -63,6 +63,7 @@ exports.findOne = (req, res) => {
 
 // Update a account indentified by id
 exports.update = (req, res) => {
+    validateRequestAuthID(req, res)
     Account.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         email: req.body.email,
@@ -89,6 +90,7 @@ exports.update = (req, res) => {
 
 // Delete a account indentified by id
 exports.delete = (req, res) => {
+    validateRequestAuthID(req, res)
     Account.findByIdAndRemove(req.params.id)
         .then(account => {
             if(!account) {
@@ -130,4 +132,34 @@ exports.login = (req, res) => {
             })
         }
     )
+}
+
+// Middleware to verify the token passed
+exports.middleareVerifyToken = (req, res, next) => {
+    var token = req.headers['x-access-token'] || false
+
+    if(!token) {
+        return res.status(401).send({
+            auth: false,
+            message: 'No token founded.'
+        })
+    }
+    jwt.verify(token, secret, function(err, decoded) {
+        if(err) {
+            return res.status(500).send({
+                auth: false,
+                message: 'Failed to authenticate'
+            })
+        }
+        req.body.id = decoded.id
+        next()
+    })
+}
+
+const validateRequestAuthID = (req, res) => {
+    if(req.params.id !== req.body.id) {
+        return res.status(401).send({
+            message: 'Not authorized'
+        })
+    }
 }
