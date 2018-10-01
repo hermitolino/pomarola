@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken')
 const Account = require('../models/account.model')
-
-const secret = 'Badass motherfocker'
+const secret = require('../configs/auth.config').secret
 
 // Create and save the new Account
 exports.create = (req, res) => {
@@ -132,28 +131,6 @@ exports.login = (req, res) => {
             })
         }
     )
-}
-
-// Middleware to verify the token passed
-exports.middleareVerifyToken = (req, res, next) => {
-    var token = req.headers['x-access-token'] || false
-
-    if(!token) {
-        return res.status(401).send({
-            auth: false,
-            message: 'No token founded.'
-        })
-    }
-    jwt.verify(token, secret, function(err, decoded) {
-        if(err) {
-            return res.status(500).send({
-                auth: false,
-                message: 'Failed to authenticate'
-            })
-        }
-        req.body.id = decoded.id
-        next()
-    })
 }
 
 const validateRequestAuthID = (req, res) => {

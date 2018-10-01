@@ -37,8 +37,11 @@ app.get('/', (req, res) => {
     res.json({'message': 'Wellcome to Pomarola'})
 })
 
-// User routes
+// Account routes
 require('./routes/accounts.route')(app)
+
+// PomodoroType routes
+require('./routes/pomodoro_types.route')(app)
 
 app.listen(port, () => {
     console.log('Server is listening on port ' + port)

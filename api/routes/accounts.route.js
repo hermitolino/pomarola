@@ -1,4 +1,5 @@
 module.exports = (app) => {
+    const auth = require('../middlewares/auth.middleware')
     const accounts = require('../controllers/accounts.controller.js')
 
     // Login
@@ -14,10 +15,10 @@ module.exports = (app) => {
     app.get('/accounts/:id', accounts.findOne)
 
     // Update a account with id
-    app.put('/accounts/:id', accounts.middleareVerifyToken, accounts.update)
+    app.put('/accounts/:id', auth.verifyToken, accounts.update)
 
     // Delete a account with id
-    app.delete('/accounts/:id', accounts.middleareVerifyToken, accounts.delete)
+    app.delete('/accounts/:id', auth.verifyToken, accounts.delete)
 
     // Logout
     app.get('/logout', function (req, res) {
