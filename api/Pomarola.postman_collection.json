@@ -19,6 +19,26 @@
 			"response": []
 		},
 		{
+			"name": "http://api.pomarola.local/login",
+			"request": {
+				"url": "http://api.pomarola.local/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"tester3@test.local\",\n\t\"password\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "http://api.pomarola.local/accounts",
 			"request": {
 				"url": "http://api.pomarola.local/accounts",
@@ -75,6 +95,194 @@
 				"url": "http://api.pomarola.local/accounts/5bacf66616a60feb453c3f00",
 				"method": "DELETE",
 				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.pomarola.local/pomodoro_types",
+			"request": {
+				"url": "http://api.pomarola.local/pomodoro_types",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViYWQyNzAyZWQ2NmE2ODY3NjQ5MzQxNiIsImlhdCI6MTUzODM5NTE4MCwiZXhwIjoxNTM4NDgxNTgwfQ.yYdaaBcAjODMcxd8fZidXvw-uHW-H85qftPdz3jXRLw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.pomarola.local/pomodoro_types",
+			"request": {
+				"url": "http://api.pomarola.local/pomodoro_types",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViYWQyNzAyZWQ2NmE2ODY3NjQ5MzQxNiIsImlhdCI6MTUzODM5NTE4MCwiZXhwIjoxNTM4NDgxNTgwfQ.yYdaaBcAjODMcxd8fZidXvw-uHW-H85qftPdz3jXRLw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Almoço\",\n\t\"time\": \"45min\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.pomarola.local/pomodoro_types/5bb20f2cb9e54e55ffd2eec5",
+			"request": {
+				"url": "http://api.pomarola.local/pomodoro_types/5bb20f2cb9e54e55ffd2eec5",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViYWQyNzAyZWQ2NmE2ODY3NjQ5MzQxNiIsImlhdCI6MTUzODM5NTE4MCwiZXhwIjoxNTM4NDgxNTgwfQ.yYdaaBcAjODMcxd8fZidXvw-uHW-H85qftPdz3jXRLw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Pausa longa padrão\",\n\t\"time\": \"15min\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.pomarola.local/pomodoro_types/5bb2113af7a023d445082d0e",
+			"request": {
+				"url": "http://api.pomarola.local/pomodoro_types/5bb2113af7a023d445082d0e",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViYWQyNzAyZWQ2NmE2ODY3NjQ5MzQxNiIsImlhdCI6MTUzODM5NTE4MCwiZXhwIjoxNTM4NDgxNTgwfQ.yYdaaBcAjODMcxd8fZidXvw-uHW-H85qftPdz3jXRLw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.pomarola.local/pomodoros",
+			"request": {
+				"url": "http://api.pomarola.local/pomodoros",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViYWQyNzAyZWQ2NmE2ODY3NjQ5MzQxNiIsImlhdCI6MTUzODM5NTE4MCwiZXhwIjoxNTM4NDgxNTgwfQ.yYdaaBcAjODMcxd8fZidXvw-uHW-H85qftPdz3jXRLw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.pomarola.local/pomodoros",
+			"request": {
+				"url": "http://api.pomarola.local/pomodoros",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViYWQyNzAyZWQ2NmE2ODY3NjQ5MzQxNiIsImlhdCI6MTUzODM5NTE4MCwiZXhwIjoxNTM4NDgxNTgwfQ.yYdaaBcAjODMcxd8fZidXvw-uHW-H85qftPdz3jXRLw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Test\",\n\t\"time\": \"15min\",\n\t\"start\": \"2018-10-01 10:47:00\",\n\t\"end\": \"2018-10-01 11:27:00\",\n\t\"status\": \"done\",\n\t\"type\": \"5bb20f2cb9e54e55ffd2eec5\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.pomarola.local/pomodoros",
+			"request": {
+				"url": "http://api.pomarola.local/pomodoros/5bb225d9823000614e4beb78",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViYWQyNzAyZWQ2NmE2ODY3NjQ5MzQxNiIsImlhdCI6MTUzODM5NTE4MCwiZXhwIjoxNTM4NDgxNTgwfQ.yYdaaBcAjODMcxd8fZidXvw-uHW-H85qftPdz3jXRLw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Test\",\n\t\"time\": \"15min\",\n\t\"start\": \"2018-10-01 10:47:00\",\n\t\"end\": \"2018-10-01 11:27:00\",\n\t\"status\": \"done\",\n\t\"type\": \"5bb20f2cb9e54e55ffd2eec5\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.pomarola.local/pomodoros",
+			"request": {
+				"url": "http://api.pomarola.local/pomodoros/5bb228c9f208f43158208b7b",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViYWQyNzAyZWQ2NmE2ODY3NjQ5MzQxNiIsImlhdCI6MTUzODM5NTE4MCwiZXhwIjoxNTM4NDgxNTgwfQ.yYdaaBcAjODMcxd8fZidXvw-uHW-H85qftPdz3jXRLw",
+						"description": ""
+					}
+				],
 				"body": {},
 				"description": ""
 			},

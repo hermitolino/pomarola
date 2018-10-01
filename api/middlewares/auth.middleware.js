@@ -18,7 +18,7 @@ exports.verifyToken = (req, res, next) => {
                 message: 'Failed to authenticate'
             })
         }
-        req.body.id = decoded.id
+        req.body.auth_user_id = decoded.id
         next()
     })
 }
