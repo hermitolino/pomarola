@@ -43,6 +43,9 @@ require('./routes/accounts.route')(app)
 // PomodoroType routes
 require('./routes/pomodoro_types.route')(app)
 
+// Pomodoro routes
+require('./routes/pomodoros.route')(app)
+
 app.listen(port, () => {
     console.log('Server is listening on port ' + port)
 })

@@ -134,7 +134,7 @@ exports.login = (req, res) => {
 }
 
 const validateRequestAuthID = (req, res) => {
-    if(req.params.id !== req.body.id) {
+    if(req.params.id !== req.body.auth_user_id) {
         return res.status(401).send({
             message: 'Not authorized'
         })
