@@ -1,3 +1,5 @@
+'use strict'
+
 const jwt = require('jsonwebtoken')
 const Account = require('../models/account.model')
 const secret = require('../configs/auth.config').secret
