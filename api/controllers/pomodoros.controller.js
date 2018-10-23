@@ -1,3 +1,5 @@
+'use strict'
+
 const Pomodoro = require('../models/pomodoro.model')
 
 // Create and save the new PromodoroType

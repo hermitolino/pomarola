@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = (app) => {
     const auth = require('../middlewares/auth.middleware')
     const pomodoros = require('../controllers/pomodoros.controller.js')
