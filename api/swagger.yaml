@@ -1,0 +1,287 @@
+swagger: "2.0"
+info:
+  title: Pomarola Pomodoro
+  description: This is just a pomodoro project to study nodejs, mongodb and another things
+  version: "0.1.0"
+host: api.pomarola.[local|com]
+paths:
+  /accounts:
+    x-swagger-router-controller: accounts
+    get:
+      summary: Returns a list of accounts
+      description: Return all accounts registred on Pomarola
+      responses:
+        "200":
+          description: The accounts object
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Account'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+    post:
+      summary: Create a account
+      description: Create a account with the params passed
+      responses:
+        "200":
+          description: The new account was created
+          schema:
+            $ref: '#/definitions/Account'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+  /account/{accountId}:
+    x-swagger-router-controller: accounts_id
+    get:
+      summary: Return the account
+      description: Return the object related to the account passed
+      parameters:
+        - in: path
+          name: accountId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: The account object
+          schema:
+            $ref: '#/definitions/Account'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+    put:
+      summary: Update a account
+      description: Update a account with the params passed
+      parameters:
+        - in: path
+          name: accountId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: The updated account was created
+          schema:
+            $ref: '#/definitions/Account'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+    delete:
+      summary: Delete a account
+      description: Delete a account with the params passed
+      parameters:
+        - in: path
+          name: accountId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: The deleted account
+          schema:
+            $ref: '#/definitions/Account'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+  /pomodoro_types:
+    x-swagger-router-controller: pomodoro_types
+    get:
+      summary: Returns a list of promodoro types
+      description: Return all pomodoro types registred on Pomarola
+      responses:
+        "200":
+          description: The pomodoro types object
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PomodoroType'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+    post:
+      summary: Create a PomodoroType
+      description: Create a PomodoroType with the params passed
+      responses:
+        "200":
+          description: The new PomodoroType was created
+          schema:
+            $ref: '#/definitions/PomodoroType'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+  /pomodoro_type/{pomodoryTypeId}:
+    x-swagger-router-controller: pomodoro_types_id
+    get:
+      summary: Return the PomodoroType
+      description: Return the object related to the PomodoroType passed
+      parameters:
+        - in: path
+          name: pomodoryTypeId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: The pomodoro_type object
+          schema:
+            $ref: '#/definitions/PomodoroType'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+    put:
+      summary: Update a pomodoro_type
+      description: Update a pomodoro_type with the params passed
+      parameters:
+        - in: path
+          name: pomodoryTypeId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: The updated pomodoro_type was created
+          schema:
+            $ref: '#/definitions/PomodoroType'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+    delete:
+      summary: Delete a pomodoro_type
+      description: Delete a pomodoro_type with the params passed
+      parameters:
+        - in: path
+          name: pomodoryTypeId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: The deleted pomodoro_type
+          schema:
+            $ref: '#/definitions/PomodoroType'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+  /pomodoros:
+    x-swagger-router-controller: pomodoro
+    get:
+      summary: Returns a list of promodoro
+      description: Return all pomodoro registred on Pomarola
+      responses:
+        "200":
+          description: The pomodoro object
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Pomodoro'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+    post:
+      summary: Create a Pomodoro
+      description: Create a Pomodoro with the params passed
+      responses:
+        "200":
+          description: The new Pomodoro was created
+          schema:
+            $ref: '#/definitions/Pomodoro'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+  /pomodoro/{pomodoryTypeId}:
+    x-swagger-router-controller: pomodoro_id
+    get:
+      summary: Return the Pomodoro
+      description: Return the object related to the Pomodoro passed
+      parameters:
+        - in: path
+          name: pomodoryTypeId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: The pomodoro object
+          schema:
+            $ref: '#/definitions/Pomodoro'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+    put:
+      summary: Update a pomodoro
+      description: Update a pomodoro with the params passed
+      parameters:
+        - in: path
+          name: pomodoryTypeId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: The updated pomodoro was created
+          schema:
+            $ref: '#/definitions/Pomodoro'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+    delete:
+      summary: Delete a pomodoro
+      description: Delete a pomodoro with the params passed
+      parameters:
+        - in: path
+          name: pomodoryTypeId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: The deleted pomodoro
+          schema:
+            $ref: '#/definitions/Pomodoro'
+        "403":
+          description: The account dont have the rights to this URL
+          schema:
+            $ref: '#/definitions/Message'
+definitions:
+  Account:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+  PomodoroType:
+    properties:
+      title:
+        type: string
+      time:
+        type: string
+  Pomodoro:
+    properties:
+      title:
+        type: string
+      time:
+        type: string
+      start:
+        type: string
+      end:
+        type: string
+      status:
+        type: string
+      user:
+        type: string
+      type:
+        type: string
+  Message:
+    properties:
+      message:
+        type: string

@@ -1,7 +1,8 @@
+'use strict'
+
 const jwt = require('jsonwebtoken')
 const Account = require('../models/account.model')
-
-const secret = 'Badass motherfocker'
+const secret = require('../configs/auth.config').secret
 
 // Create and save the new Account
 exports.create = (req, res) => {
@@ -63,6 +64,7 @@ exports.findOne = (req, res) => {
 
 // Update a account indentified by id
 exports.update = (req, res) => {
+    validateRequestAuthID(req, res)
     Account.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         email: req.body.email,
@@ -89,6 +91,7 @@ exports.update = (req, res) => {
 
 // Delete a account indentified by id
 exports.delete = (req, res) => {
+    validateRequestAuthID(req, res)
     Account.findByIdAndRemove(req.params.id)
         .then(account => {
             if(!account) {
@@ -130,4 +133,12 @@ exports.login = (req, res) => {
             })
         }
     )
+}
+
+const validateRequestAuthID = (req, res) => {
+    if(req.params.id !== req.body.auth_user_id) {
+        return res.status(401).send({
+            message: 'Not authorized'
+        })
+    }
 }

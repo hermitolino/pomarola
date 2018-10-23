@@ -1,14 +1,17 @@
+'use strict'
+
 // Init the app
 const port = 8080
 const express = require('express')
 const session = require('express-session')
 const bodyParser = require('body-parser')
+const SwaggerExpress = require('swagger-express-mw')
+const swaggerConfig = require('./configs/swagger.config')
 const app = express();
 
 // Create mongoose
 const dbConfig = require('./configs/database.config')
 const mongoose = require('mongoose')
-// const mongoStore =require('connect-mongo')(session)
 mongoose.Promise = global.Promise
 mongoose.connect(dbConfig.url, {
     useNewUrlParser: true
@@ -32,15 +35,27 @@ app.use(bodyParser.urlencoded({extended: true}))
 // parse requests of content-type application/json
 app.use(bodyParser.json())
 
-// Routes
-app.get('/', (req, res) => {
-    res.json({'message': 'Wellcome to Pomarola'})
-})
+/**
+ * Routes configurations
+ */
+SwaggerExpress.create(swaggerConfig, function (err, swaggerExpress) {
+    // Main route
+    app.get('/', (req, res) => {
+        res.json({'message': 'Wellcome to Pomarola'})
+    })
 
-// User routes
-require('./routes/accounts.route')(app)
+    // Account routes
+    require('./routes/accounts.route')(app, swaggerExpress)
 
-app.listen(port, () => {
-    console.log('Server is listening on port ' + port)
+    // PomodoroType routes
+    require('./routes/pomodoro_types.route')(app)
+
+    // Pomodoro routes
+    require('./routes/pomodoros.route')(app)
+
+    // App listening
+    app.listen(port, () => {
+        console.log('Server is listening on port ' + port)
+    })
 })
 
