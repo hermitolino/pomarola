@@ -1,5 +1,5 @@
 {
-  "name": "pomarola",
+  "name": "pomarola-api",
   "version": "0.1.0",
   "description": "The Pomarola API",
   "main": "main.js",
