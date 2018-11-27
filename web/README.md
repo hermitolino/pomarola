@@ -1,6 +1,6 @@
-# pomodoro-web
+# pomarola-web
 
-> The interface for the pomarola project
+> The web interface from pomarola project
 
 ## Build Setup
 
